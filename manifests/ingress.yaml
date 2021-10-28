@@ -18,7 +18,7 @@ spec:
               service:
                 name: ciao-svc
                 port:
-                  number: 443
+                  number: 80
   tls:
   - hosts: 
     - <username>.dev.workshop.exanio.net

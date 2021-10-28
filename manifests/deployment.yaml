@@ -5,7 +5,7 @@ metadata:
   namespace: <namespace_name>
   labels:
     app.kubernetes.io/name: ciao
-    app.kubernetes.io/version: 1.6.12
+    app.kubernetes.io/version: "1.6.12"
 spec:
   replicas: 1
   selector:
@@ -35,7 +35,7 @@ spec:
                   name: ciao-secret
                   key: password
           ports:
-            - name: https
+            - name: http
               containerPort: 3000
               protocol: TCP
           livenessProbe:
@@ -68,8 +68,8 @@ spec:
             successThreshold: 1
           resources:
             limits:
-              cpu: 100m
-              memory: 128Mi
+              cpu: 500m
+              memory: 256Mi
       volumes:
         - name: sqlite
           persistentVolumeClaim:

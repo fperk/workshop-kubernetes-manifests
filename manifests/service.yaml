@@ -5,14 +5,13 @@ metadata:
   namespace: <namespace_name>
   labels:
     app.kubernetes.io/name: ciao
-    app.kubernetes.io/version: 1.6.12
+    app.kubernetes.io/version: "1.6.12"
 spec:
   type: ClusterIP
   ports:
-    - port: 443
-      targetPort: https
+    - name: http
       protocol: TCP
-      name: https
+      port: 80
+      targetPort: 3000
   selector:
     app.kubernetes.io/name: ciao
-    app.kubernetes.io/version: 1.6.12
