@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ciao-pvc
+  name: ciao
   namespace: <namespace_name>
   labels:
     app.kubernetes.io/name: ciao
@@ -11,5 +11,5 @@ spec:
     - "ReadWriteOnce"
   resources:
     requests:
-      storage: "1Gi"
+      storage: "50Mi"
   storageClassName: "hcloud-volumes"

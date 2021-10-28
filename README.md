@@ -82,6 +82,8 @@ We can also create a Namespace with a kubernetes manifest:
 
 ### Statefulset
 
+scale
+
 ### DaemonSet
 
 ### Ingress

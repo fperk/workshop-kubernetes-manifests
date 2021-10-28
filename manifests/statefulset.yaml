@@ -35,6 +35,10 @@ spec:
               value: testpassword
             - name: PGDATA
               value: /data/pgdata
+          ports:
+            - name: psql
+              containerPort: 5432
+              protocol: TCP
   volumeClaimTemplates:
     - metadata:
         name: postgresql-db-disk
@@ -43,7 +47,7 @@ spec:
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: 5Gi
+            storage: 50Mi
 ---
 apiVersion: v1
 kind: Service

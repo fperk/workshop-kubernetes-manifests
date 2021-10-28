@@ -20,9 +20,10 @@ spec:
         - name: ciao
           image: "brotandgames/ciao:1.6.12"
           imagePullPolicy: Always
-          volumeMounts:
-            - name: sqlite
-              mountPath: "/app/db/sqlite"
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
           # envFrom:
           # - configMapRef:
           #   name: ciao-configmap
@@ -30,22 +31,21 @@ spec:
             - name: BASIC_AUTH_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: ciao-secret
+                  name: ciao
                   key: username
             - name: BASIC_AUTH_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: ciao-secret
+                  name: ciao
                   key: password
             # - name: TIME_ZONE
             #   valueFrom:
             #     configMapKeyRef:
             #       name: ciao-configmap
             #       key: TIME_ZONE
-          ports:
-            - name: http
-              containerPort: 3000
-              protocol: TCP
+          volumeMounts:
+            - name: sqlite
+              mountPath: "/app/db/sqlite"
           livenessProbe:
             httpGet:
               path: /
@@ -81,4 +81,4 @@ spec:
       volumes:
         - name: sqlite
           persistentVolumeClaim:
-            claimName: ciao-pvc
+            claimName: ciao
