@@ -25,7 +25,7 @@ spec:
               mountPath: "/app/db/sqlite"
           # envFrom:
           # - configMapRef:
-          #   name: ciao-env
+          #   name: ciao-configmap
           env:
             - name: BASIC_AUTH_USERNAME
               valueFrom:
@@ -37,11 +37,11 @@ spec:
                 secretKeyRef:
                   name: ciao-secret
                   key: password
-            # - name: BASIC_AUTH_USERNAME
+            # - name: TIME_ZONE
             #   valueFrom:
             #     configMapKeyRef:
-            #       name: ciao-env
-            #       key: BASIC_AUTH_USERNAME
+            #       name: ciao-configmap
+            #       key: TIME_ZONE
           ports:
             - name: http
               containerPort: 3000

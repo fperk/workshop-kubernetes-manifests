@@ -6,6 +6,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
+    # Name of the cluster certificate issuer
     cert-manager.io/cluster-issuer: letsencrypt-http01
 spec:
   rules:
@@ -21,5 +22,7 @@ spec:
                   number: 80
   tls:
   - hosts: 
+    # Hostname for which the certificate will be issued
     - <username>.dev.workshop.exanio.net
+    # This secret will be created automatically from cert-manager
     secretName: ciao-tls-secret

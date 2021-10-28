@@ -1,4 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: <insert-namespace-name-here>
+  name: <namespace_name>

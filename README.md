@@ -76,8 +76,16 @@ We can also create a Namespace with a kubernetes manifest:
 
 ### Deployment
 
+`kubectl create -f deployment.yaml`
+
+`kubectl delete -f deployment.yaml`
+
 ### Statefulset
 
 ### DaemonSet
 
 ### Ingress
+
+`kubectl create -f ingress.yaml`
+
+`kubectl delete -f ingress.yaml`

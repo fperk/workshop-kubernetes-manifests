@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ciao-env
+  name: ciao-configmap
   namespace: <namespace_name>
 data:
   # SECRET_KEY_BASE: "sensitive_secret_key_base"
@@ -16,3 +16,4 @@ data:
   # SMTP_PASSWORD: "sensitive_password"
   # BASIC_AUTH_USERNAME: "username"
   # BASIC_AUTH_PASSWORD: "password"
+  # TIME_ZONE: "Vienna"
