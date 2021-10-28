@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ciao
+  namespace: <namespace_name>
+  labels:
+    app.kubernetes.io/name: ciao
+    app.kubernetes.io/version: 1.6.12
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ciao
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ciao
+    spec:
+      containers:
+        - name: ciao
+          image: "brotandgames/ciao:1.6.12"
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: sqlite
+              mountPath: "/app/db/sqlite"
+          env:
+            - name: BASIC_AUTH_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: ciao-secret
+                  key: username
+            - name: BASIC_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ciao-secret
+                  key: password
+          ports:
+            - name: https
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+              httpHeaders:
+                - name: Authorization
+                  # Generate base64 encoded secret
+                  # echo -n "Aladdin:OpenSesame" | base64
+                  value: Basic aGE6aGE=
+            initialDelaySeconds: 60
+            timeoutSeconds: 10
+            periodSeconds: 15
+            failureThreshold: 4
+            successThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+              httpHeaders:
+                - name: Authorization
+                  # Generate base64 encoded secret
+                  # echo -n "Aladdin:OpenSesame" | base64
+                  value: Basic aGE6aGE=
+            initialDelaySeconds: 60
+            timeoutSeconds: 10
+            periodSeconds: 15
+            failureThreshold: 4
+            successThreshold: 1
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+      volumes:
+        - name: sqlite
+          persistentVolumeClaim:
+            claimName: ciao-pvc
