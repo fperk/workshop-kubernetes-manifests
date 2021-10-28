@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ciao-env
+  namespace: <namespace_name>
+data:
+  # SECRET_KEY_BASE: "sensitive_secret_key_base"
+  # SMTP_ADDRESS: smtp.yourhost.com
+  # SMTP_EMAIL_FROM: "ciao@yourhost.com"
+  # SMTP_EMAIL_TO: "you@yourhost.com"
+  # SMTP_PORT: 587
+  # SMTP_AUTHENTICATION: plain
+  # SMTP_DOMAIN: smtp.yourhost.com
+  # SMTP_ENABLE_STARTTLS_AUTO: true
+  # SMTP_USERNAME: ciao
+  # SMTP_PASSWORD: "sensitive_password"
+  # BASIC_AUTH_USERNAME: "username"
+  # BASIC_AUTH_PASSWORD: "password"
