@@ -90,7 +90,7 @@ kubectl create secret <type> <secret_name>
 
 kubectl create secret generic <secret_name>
 
-kubectl get secret <secret_name>
+kubectl -n <namespace_name> get secret <secret_name>
 
 kubectl create -f secret.yaml
 
@@ -100,7 +100,7 @@ kubectl delete -f secret.yaml
 ### PVC / PV
 
 ```sh
-kubectl describe pvc <pvc_name>
+kubectl -n <namespace_name> describe pvc <pvc_name>
 
 kubectl create -f pvc.yaml
 
@@ -110,7 +110,7 @@ kubectl delete -f pvc.yaml
 ### Service
 
 ```sh
-kubectl describe service <service_name>
+kubectl -n <namespace_name> describe service <service_name>
 
 kubectl create -f service.yaml
 

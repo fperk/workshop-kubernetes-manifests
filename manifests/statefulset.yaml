@@ -14,16 +14,16 @@ spec:
       labels:
         app: postgresql-db
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-                - key: "app"
-                  operator: In
-                  values:
-                  - postgres-db
-            topologyKey: "kubernetes.io/hostname"
+      # affinity:
+      #   podAntiAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #     - labelSelector:
+      #         matchExpressions:
+      #           - key: "app"
+      #             operator: In
+      #             values:
+      #             - postgres-db
+      #       topologyKey: "kubernetes.io/hostname"
       containers:
         - name: postgresql-db
           image: postgres:latest
