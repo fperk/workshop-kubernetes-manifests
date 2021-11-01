@@ -1,5 +1,20 @@
 # Kubernetes Workshop
 
+## Access to the cluster
+
+We have to reach `kula-001` (Bastion host) to access the cluster:
+
+```sh
+$ ssh -i <ssh_private_key_path> <username>@kula-001.workshop.exanio.net
+```
+
+From there on we can communicate with the Cluster by exporting the `KUBECONFIG` variable to our `env`ironment:
+
+```sh
+$ export KUBECONFIG=/opt/kubeconfig
+$ kubectl get nodes
+```
+
 ## Kubernetes Basics
 
 `kubectl get <resource>` is the same like `kubectl get <resource_abbrevation>`
