@@ -146,3 +146,9 @@ kubectl create -f daemonset.yaml
 ```sh
 kubectl create -f ingress.yaml
 ```
+
+### CronJob
+
+```sh
+kubectl create -f cronjob.yaml
+```
