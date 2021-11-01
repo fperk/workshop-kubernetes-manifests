@@ -59,10 +59,10 @@ In Kubernetes you can choose between the `yaml` and `json` format.
 
 #### Delete Namespace
 
-`Warning: This deletes everything under the namespace!`
+> WARNING: This deletes everything under the namespace!
 
 ```sh
-kubectl delete namespaces <namespace_name>
+# kubectl delete namespaces <namespace_name>
 ```
 
 ### Pod
