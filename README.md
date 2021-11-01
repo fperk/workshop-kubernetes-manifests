@@ -3,10 +3,14 @@
 ## Kubernetes Basics
 
 `kubectl get <resource>` is the same like `kubectl get <resource_abbrevation>`
+
 `kubectl get namespace` is the same like `kubectl get ns`
+
 `kubectl get service` is the same like `kubectl get svc`
 
 `kubectl describe <resources>` ie. `kubectl get namespaces`
+
+`kubectl get pod -o wide`
 
 We can also describe a specific resource `kubectl describe namespaces <namespace_name>`
 
