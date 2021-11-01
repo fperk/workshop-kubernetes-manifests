@@ -31,82 +31,118 @@ We can also describe a specific resource `kubectl describe namespaces <namespace
 
 ## Kubernetes Resources
 
+```
+<namespace_name> = <username>
+```
+
 ### Namespace
 
 #### Create Namespace
 
-`kubectl create namespace <username>`
+```sh
+kubectl create namespace <namespace_name>
+```
 
 For example:
 
-`kubectl create namespace fpe`
+```sh
+kubectl create namespace fpe
+```
 
 We can also create a Namespace with a kubernetes manifest:
 
-`kubectl create -f namespace.yaml` (this can also be a json file)
+```sh
+kubectl create -f namespace.yaml
+``` 
+
+In Kubernetes you can choose between the `yaml` and `json` format.
 
 #### Delete Namespace
 
 `Warning: This deletes everything under the namespace!`
 
-`kubectl delete namespaces <insert-some-namespace-name>`
+```sh
+kubectl delete namespaces <namespace_name>
+```
 
 ### Pod
 
-`kubectl get pods --namespace <username>` is the same as `kubectl get pods -n <username>`
+`kubectl get pods --namespace <namespace_name>` is the same as `kubectl get pods -n <namespace_name>`
 
-`kubectl create -f pod.yaml`
+```sh
+kubectl create -f pod.yaml
+```
 
-`kubectl delete -f pod.yaml` or `kubectl delete pod <pod_name>`
+`kubectl delete -f pod.yaml` or `kubectl -n <namespace_name> delete pod <pod_name>`
 
 ### ConfigMap
 
-`kubectl create -f configmap.yaml`
+```sh
+kubectl create -f configmap.yaml
+```
 
-`kubectl delete -f configmap.yaml` or `kubectl delete configmap <configmap_name>`
+`kubectl delete -f configmap.yaml` or `kubectl -n <namespace_name> delete configmap <configmap_name>`
 
 ### Secret
 
-`kubectl create secret <type> <secret_name>`
+```sh
+kubectl create secret <type> <secret_name>
 
-`kubectl create secret generic <secret_name>`
+kubectl create secret generic <secret_name>
 
-`kubectl get secret <secret_name>`
+kubectl get secret <secret_name>
 
-`kubectl create -f secret.yaml`
+kubectl create -f secret.yaml
 
-`kubectl delete -f secret.yaml`
+kubectl delete -f secret.yaml
+```
 
 ### PVC / PV
 
-`kubectl describe pvc <pvc_name>`
+```sh
+kubectl describe pvc <pvc_name>
 
-`kubectl create -f pvc.yaml`
+kubectl create -f pvc.yaml
 
-`kubectl delete -f pvc.yaml`
+kubectl delete -f pvc.yaml
+```
 
 ### Service
 
-`kubectl describe service <service_name>`
+```sh
+kubectl describe service <service_name>
 
-`kubectl create -f service.yaml`
+kubectl create -f service.yaml
 
-`kubectl delete -f service.yaml`
+kubectl delete -f service.yaml
+```
 
 ### Deployment
 
-`kubectl create -f deployment.yaml`
+```sh
+kubectl create -f deployment.yaml
 
-`kubectl delete -f deployment.yaml`
+kubectl delete -f deployment.yaml
+```
 
 ### Statefulset
 
-scale
+```sh
+kubectl create -f statefulset.yaml
+
+kubectl delete -f statefulset.yaml
+
+kubectl -n <namespace_name> scale statefulsets <stateful-set-name> --replicas=<new-replicas>
+```
 
 ### DaemonSet
 
+```sh
+kubectl create -f daemonset.yaml
+```
+
 ### Ingress
 
-`kubectl create -f ingress.yaml`
-
-`kubectl delete -f ingress.yaml`
+```sh
+kubectl create -f ingress.yaml
+```
