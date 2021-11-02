@@ -31,8 +31,12 @@ We can also describe a specific resource `kubectl describe namespaces <namespace
 
 ## Kubernetes Resources
 
+`<namespace_name> = <username>`
+
+If you want to change the <namespace_name> to your <username> just execute this command in the manifests directory:
+
 ```
-<namespace_name> = <username>
+find . -type f -name "*.yaml" -print0 | xargs -0 sed -i "s/<namespace_name>/<username>/g"
 ```
 
 ### Namespace
