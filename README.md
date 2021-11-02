@@ -31,6 +31,10 @@ $ kubectl get nodes
 
 `kubectl exec --stdin -tt <pod_name> -- /bin/sh`
 
+`kubectl -n <namespace_name> port-forward service/<servicename> <local_port>:<service_port>`
+
+`kubectl -n <namespace_name> port-forward <pod_name> <local_port>:<pod_port>`
+
 We can also describe a specific resource `kubectl describe namespaces <namespace_name>`
 
 ## Kubernetes Resources
