@@ -27,6 +27,10 @@ $ kubectl get nodes
 
 `kubectl get pod -o wide`
 
+`kubectl logs <pod_name>`
+
+`kubectl exec --stdin -tt <pod_name> -- /bin/sh`
+
 We can also describe a specific resource `kubectl describe namespaces <namespace_name>`
 
 ## Kubernetes Resources
