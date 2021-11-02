@@ -96,6 +96,10 @@ kubectl create secret generic <secret_name>
 
 kubectl -n <namespace_name> get secret <secret_name>
 
+kubectl -n <namespace_name> describe secret <secret_name>
+
+kubectl -n <namespace_name> get secret <secret_name> -o jsonpath='{.data}'
+
 kubectl create -f secret.yaml
 
 kubectl delete -f secret.yaml

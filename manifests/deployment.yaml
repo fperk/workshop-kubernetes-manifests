@@ -25,8 +25,8 @@ spec:
               containerPort: 3000
               protocol: TCP
           # envFrom:
-          # - configMapRef:
-          #   name: ciao-configmap
+          #   - configMapRef:
+          #       name: ciao
           env:
             - name: BASIC_AUTH_USERNAME
               valueFrom:
@@ -41,7 +41,7 @@ spec:
             # - name: TIME_ZONE
             #   valueFrom:
             #     configMapKeyRef:
-            #       name: ciao-configmap
+            #       name: ciao
             #       key: TIME_ZONE
           volumeMounts:
             - name: sqlite
@@ -54,7 +54,7 @@ spec:
                 - name: Authorization
                   # Generate base64 encoded secret
                   # echo -n "Aladdin:OpenSesame" | base64
-                  value: Basic aGE6aGE=
+                  value: Basic QWxhZGRpbjpPcGVuU2VzYW1l
             initialDelaySeconds: 60
             timeoutSeconds: 10
             periodSeconds: 15
@@ -68,7 +68,7 @@ spec:
                 - name: Authorization
                   # Generate base64 encoded secret
                   # echo -n "Aladdin:OpenSesame" | base64
-                  value: Basic aGE6aGE=
+                  value: Basic QWxhZGRpbjpPcGVuU2VzYW1l
             initialDelaySeconds: 60
             timeoutSeconds: 10
             periodSeconds: 15
