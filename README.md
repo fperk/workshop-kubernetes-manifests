@@ -29,7 +29,7 @@ $ kubectl get nodes
 
 `kubectl logs <pod_name>`
 
-`kubectl exec --stdin -tt <pod_name> -- /bin/sh`
+`kubectl -n <namespace_name> exec -it <pod_name> -- /bin/sh`
 
 `kubectl -n <namespace_name> port-forward service/<servicename> <local_port>:<service_port>`
 
