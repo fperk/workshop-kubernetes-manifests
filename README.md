@@ -44,9 +44,9 @@ We can also describe a specific resource `kubectl describe namespaces <namespace
 If you want to change the <namespace_name> to your <username> just execute this command in the manifests directory:
 
 ```
-find . -type f -name "*.yaml" -print0 | xargs -0 sed -i "s/<namespace_name>/<username>/g"
-
-find . -type f -name "ingress.yaml" -print0 | xargs -0 sed -i "s/<username>/<namespace_name>/g"
+USERNAME=$(whoami) && \
+find . -type f -name "*.yaml" -print0 | xargs -0 sed -i "s/<namespace_name>/$USERNAME/g" && \
+find . -type f -name "ingress.yaml" -print0 | xargs -0 sed -i "s/<username>/$USERNAME/g"
 ```
 
 ### Namespace
