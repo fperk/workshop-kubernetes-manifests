@@ -76,7 +76,7 @@ spec:
             successThreshold: 1
           resources:
             limits:
-              cpu: 500m
+              cpu: 200m
               memory: 256Mi
       volumes:
         - name: sqlite
