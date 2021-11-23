@@ -46,7 +46,8 @@ If you want to change the <namespace_name> to your <username> just execute this 
 ```
 USERNAME=$(whoami) && \
 find . -type f -name "*.yaml" -print0 | xargs -0 sed -i "s/<namespace_name>/$USERNAME/g" && \
-find . -type f -name "ingress.yaml" -print0 | xargs -0 sed -i "s/<username>/$USERNAME/g"
+find . -type f -name "ingress.yaml" -print0 | xargs -0 sed -i "s/<username>/$USERNAME/g" && \
+find . -type f -name "debug
 ```
 
 ### Namespace
@@ -125,6 +126,14 @@ kubectl create -f pvc.yaml
 kubectl delete -f pvc.yaml
 ```
 
+### Deployment
+
+```sh
+kubectl create -f deployment.yaml
+
+kubectl delete -f deployment.yaml
+```
+
 ### Service
 
 ```sh
@@ -135,12 +144,16 @@ kubectl create -f service.yaml
 kubectl delete -f service.yaml
 ```
 
-### Deployment
+### Ingress
 
 ```sh
-kubectl create -f deployment.yaml
+kubectl create -f ingress.yaml
+```
 
-kubectl delete -f deployment.yaml
+### CronJob
+
+```sh
+kubectl create -f cronjob.yaml
 ```
 
 ### Statefulset
@@ -157,16 +170,4 @@ kubectl -n <namespace_name> scale statefulsets <stateful-set-name> --replicas=<n
 
 ```sh
 kubectl create -f daemonset.yaml
-```
-
-### Ingress
-
-```sh
-kubectl create -f ingress.yaml
-```
-
-### CronJob
-
-```sh
-kubectl create -f cronjob.yaml
 ```
