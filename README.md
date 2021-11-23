@@ -46,8 +46,7 @@ If you want to change the <namespace_name> to your <username> just execute this 
 ```
 USERNAME=$(whoami) && \
 find . -type f -name "*.yaml" -print0 | xargs -0 sed -i "s/<namespace_name>/$USERNAME/g" && \
-find . -type f -name "ingress.yaml" -print0 | xargs -0 sed -i "s/<username>/$USERNAME/g" && \
-find . -type f -name "debug
+find . -type f -name "ingress.yaml" -print0 | xargs -0 sed -i "s/<username>/$USERNAME/g"
 ```
 
 ### Namespace
